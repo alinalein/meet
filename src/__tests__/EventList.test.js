@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import EventList from '../components/EventList';
-import import { getEvents } from '../api';
+import { getEvents } from '../api';
 
 describe('<EventList /> component', () => {
     let EventListComponent;
