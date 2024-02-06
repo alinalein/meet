@@ -1,13 +1,18 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { extractLocations, getEvents } from '../api';
 
 
-const CitySearch = ({ allLocations }) => {
+const CitySearch = ({ allLocations, setCurrentCity }) => {
     const [showSuggestions, setShowSuggestions] = useState(false);
     // for the value in input
     const [query, setQuery] = useState("");
     // will suggest in li only cities that will match the input field
     const [suggestions, setSuggestions] = useState([]);
+
+
+    useEffect(() => {
+        setSuggestions(allLocations);
+    }, [`${allLocations}`]);
 
     const handleInputChanged = (event) => {
         const value = event.target.value;
@@ -23,6 +28,7 @@ const CitySearch = ({ allLocations }) => {
         const value = event.target.textContent;
         setQuery(value);
         setShowSuggestions(false); // to hide the list
+        setCurrentCity(value);
     };
 
     return (
