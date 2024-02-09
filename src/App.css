@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:500);
 
 body {
-  background-image: url("../pics/ace4314e99d869bb8021db2a3705aece.jpg");
+  background-image: url("https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/new-york-skyline-watercolor-marian-voicu.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -18,13 +18,15 @@ body {
 
 h1 {
   font-size: 4em;
-  text-shadow: 3px 3px 3px white,
+  text-shadow:
+    2px 2px 6px #FFA500,
     /* Top left */
-    -3px -3px 3px white,
+    -3px -3px 6px #FFA500,
     /* Bottom right */
-    3px -3px 3px white,
+    3px -3px 6px #FFA500,
     /* Bottom left */
-    -3px 3px 3px white;
+    -3px 3px 6px #FFA500;
+  color: white;
 }
 
 ul {
@@ -122,11 +124,11 @@ input[type="number"] {
   position: absolute;
   right: 5px;
   bottom: 5px;
-  padding: 8px 10px;
+  padding: 6px 9px;
   border-radius: 4px;
   outline: none;
   cursor: pointer;
   background-color: #FFA500;
   font-weight: bold;
-
+  margin: 3px;
 }
