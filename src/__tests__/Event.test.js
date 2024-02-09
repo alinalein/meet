@@ -2,6 +2,7 @@ import { render } from "@testing-library/react";
 import Event from "../components/Event";
 import userEvent from "@testing-library/user-event";
 import { getEvents } from "../api";
+import { formatDateTime } from '../utils/helpers';
 
 describe('<Event /> component', () => {
     let EventComponent;
@@ -23,7 +24,8 @@ describe('<Event /> component', () => {
         expect(EventComponent.queryByText(allEvents[0].location)).toBeInTheDocument();
     });
     test('renders event created', () => {
-        expect(EventComponent.queryByText(allEvents[0].created)).toBeInTheDocument();
+        const formattedCreatedDate = formatDateTime(allEvents[0].created);
+        expect(EventComponent.queryByText(formattedCreatedDate)).toBeInTheDocument();
     });
     test('checks for "Open Details" button', () => {
         expect(EventComponent.queryByText('Show Details')).toBeInTheDocument()

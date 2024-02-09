@@ -107,17 +107,6 @@ input[type="number"] {
   padding: 8px;
 }
 
-.label-input-container {
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  margin: auto;
-  max-width: 450px;
-  text-align: center;
-  padding: 10px;
-  border-radius: 10px;
-}
-
 .event {
   padding: 10px 10px 35px;
   margin-bottom: 10px;
