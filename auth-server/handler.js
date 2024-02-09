@@ -76,7 +76,7 @@ module.exports.getAccessToken = async (event) => {
 };
 
 module.exports.getCalendarEvents = async (event) => {
-  // get access token
+  // get access token, Decode authorization code & extraxt from params in HTTP/ URL query 
   const access_token = decodeURIComponent(`${event.pathParameters.access_token}`);
   oAuth2Client.setCredentials({ access_token });
 
@@ -101,6 +101,7 @@ module.exports.getCalendarEvents = async (event) => {
       // Respond with OAuth token
       return {
         statusCode: 200,
+        // removes CORS check 
         headers: {
           'Access-Control-Allow-Origin': '*',
           'Access-Control-Allow-Credentials': true,
