@@ -45,10 +45,10 @@ const CitySearch = ({ allLocations, setCurrentCity }) => {
                 <ul className="suggestions">
                     {suggestions.map((suggestion) => {
                         // return list if location we suggest based on input 
-                        return <li onClick={handleItemClicked} key={suggestion}>{suggestion}</li>
+                        return <li className="city" onClick={handleItemClicked} key={suggestion}>{suggestion}</li>
                     })}
                     <li onClick={handleItemClicked} key='See all cities'>
-                        <b>See all cities</b>
+                        See all cities
                     </li>
                 </ul>
                 : null}
