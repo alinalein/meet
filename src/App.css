@@ -87,7 +87,7 @@ input[type="number"] {
 }
 
 .suggestions>li:hover {
-  background-color: #FFFFE0;
+  background-color: #fac561;
 }
 
 .input_events__number {
