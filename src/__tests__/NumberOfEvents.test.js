@@ -11,7 +11,7 @@ describe('<NumberOfEvents/> component', () => {
     )
 
     test('renter elemet with role textbox', () => {
-        expect(NumberOfEventsComponent.queryByRole('textbox')).toBeInTheDocument();
+        expect(NumberOfEventsComponent.queryByRole('spinbutton')).toBeInTheDocument();
     })
     test('default value of the input field is 32', () => {
         const defaultValue = NumberOfEventsComponent.getByDisplayValue('32');
@@ -20,9 +20,9 @@ describe('<NumberOfEvents/> component', () => {
     test('value of input changes as user types in the input field', async () => {
         const user = userEvent.setup();
         NumberOfEventsComponent.rerender(<NumberOfEvents setCurrentNOE={() => { }} />);
-        const inputField = NumberOfEventsComponent.queryByRole('textbox')
+        const inputField = NumberOfEventsComponent.queryByRole('spinbutton')
         await user.type(inputField, '{backspace}{backspace}4');
-        expect(inputField).toHaveValue('4');
+        expect(inputField).toHaveValue(4);
     })
 })
 
@@ -33,7 +33,7 @@ describe('<NunberOfEvents /> integration', () => {
         const AppDOM = AppComponent.container.firstChild;
         const NumberOfEventstDOM = AppDOM.querySelector('#number-events');
 
-        const numberTextBox = within(NumberOfEventstDOM).queryByRole('textbox');
+        const numberTextBox = within(NumberOfEventstDOM).queryByRole('spinbutton');
         await user.type(numberTextBox, "{backspace}{backspace}10");
 
         const EventListDOM = AppDOM.querySelector('#event-list');
