@@ -26,25 +26,35 @@ defineFeature(feature, test => {
         then('they should observe that event elements are collapsed by default.', () => {
             const eventDetails = EventListDOM.querySelector('.details')
             expect(eventDetails).not.toBeInTheDocument()
-
         });
     });
+
     test('User can expand an event to see details', ({ given, when, then }) => {
-        let EventComponent
-        let allEvents
+        let EventListDOM
         given('the user is viewing the events section;', async () => {
-            allEvents = await getEvents();
-            EventComponent = render(<Event event={allEvents[0]} />)
+            const AppComponent = render(<App />);
+            const AppDOM = AppComponent.container.firstChild;
+            EventListDOM = AppDOM.querySelector('#event-list');
         });
 
+        let EventDOM
         when('they choose to expand a specific event;', async () => {
             const user = userEvent.setup();
-            const clickOpen = EventComponent.queryByText('Show Details')
-            await user.click(clickOpen);
+            EventDOM = EventListDOM.querySelector('.event');
+            if (EventDOM) {
+                const clickOpen = EventDOM.querySelector('.details-btn');
+                if (clickOpen) {
+                    await user.click(clickOpen);
+                } else {
+                    console.error('Unable to find the "details-btn" element within the event');
+                }
+            } else {
+                console.error('No event elements found');
+            }
         });
 
         then('they should be able to see the details of the selected event.', () => {
-            const eventDetails = EventComponent.container.querySelector('.details')
+            const eventDetails = EventDOM.querySelector('.details')
             expect(eventDetails).toBeInTheDocument()
         });
     });

@@ -10,7 +10,7 @@ describe('<NumberOfEvents/> component', () => {
         NumberOfEventsComponent = render(<NumberOfEvents />)
     )
 
-    test('renter elemet with role textbox', () => {
+    test('render element with role textbox', () => {
         expect(NumberOfEventsComponent.queryByRole('spinbutton')).toBeInTheDocument();
     })
     test('default value of the input field is 32', () => {
