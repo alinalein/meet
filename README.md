@@ -14,9 +14,9 @@ __Then__ the user should see a list of upcoming events.
 __When__ user starts typing in the city textbox; 
 __Then__ the user should receive a list of cities (suggestions) that match what they’ve typed.
 
-- __Given__ user was typing “Berlin” in the city textbox AND the list of suggested cities is showing; 
+- __Given__ user was typing “Berlin” in the city textbox __AND__ the list of suggested cities is showing; 
 __When__ the user selects a city (e.g., “Berlin, Germany”) from the list; 
-__Then__ their city should be changed to that city (i.e., “Berlin, Germany”) AND the user should receive a list of upcoming events in that city.
+__Then__ their city should be changed to that city (i.e., “Berlin, Germany”) __AND__ the user should receive a list of upcoming events in that city.
 
 ### 2. Feature : Show/Hide Event Details
 
