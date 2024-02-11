@@ -45,7 +45,7 @@ describe('<Event /> component', () => {
         const user = userEvent.setup();
         const clickOpen = EventComponent.queryByText('Hide Details')
         await user.click(clickOpen);
-        const eventDetails = EventComponent.container.querySelector('.event__details')
+        const eventDetails = EventComponent.container.querySelector('.details')
         expect(eventDetails).not.toBeInTheDocument()
     })
 });
