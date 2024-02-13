@@ -30,31 +30,19 @@ defineFeature(feature, test => {
     });
 
     test('User can expand an event to see details', ({ given, when, then }) => {
-        let EventListDOM
+        let EventDOM
         given('the user is viewing the events section;', async () => {
-            const AppComponent = render(<App />);
-            const AppDOM = AppComponent.container.firstChild;
-            EventListDOM = AppDOM.querySelector('#event-list');
+            const event = await getEvents();
+            EventDOM = render(<Event event={event[0]} />);
         });
 
-        let EventDOM
         when('they choose to expand a specific event;', async () => {
             const user = userEvent.setup();
-            EventDOM = EventListDOM.querySelector('.event');
-            if (EventDOM) {
-                const clickOpen = EventDOM.querySelector('.details-btn');
-                if (clickOpen) {
-                    await user.click(clickOpen);
-                } else {
-                    console.error('Unable to find the "details-btn" element within the event');
-                }
-            } else {
-                console.error('No event elements found');
-            }
+            await user.click(EventDOM.getByText('Show Details'));
         });
 
         then('they should be able to see the details of the selected event.', () => {
-            const eventDetails = EventDOM.querySelector('.details')
+            const eventDetails = EventDOM.container.querySelector('.details')
             expect(eventDetails).toBeInTheDocument()
         });
     });
