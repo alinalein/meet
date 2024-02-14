@@ -1,10 +1,17 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:500);
 
-body {
+.div_background {
   background-image: url("https://blog.ourcrowd.com/wp-content/uploads/2016/01/future-of-connected-world.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-position: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
 }
 
 .App {

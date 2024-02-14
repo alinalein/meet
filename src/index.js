@@ -10,9 +10,11 @@ atatus.config('1d3bdcdf6bec40e69626fdf723c55c78').install();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <div className='div_background'>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </div>
 );
 
 // If you want your app to work offline and load faster, you can change
