@@ -96,9 +96,10 @@ input[type="number"] {
 }
 
 .label_events__number {
-  color: black;
+  color: white;
   font-size: large;
-  text-shadow: 2px 2px 2px #94e6c5;
+  text-shadow: 2px 2px 2px black,
+    2px -2px 2px #3bc58d;
   font-weight: bold;
   padding: 8px;
 }
