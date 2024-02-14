@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:500);
 
 body {
-  background-image: url("https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/new-york-skyline-watercolor-marian-voicu.jpg");
+  background-image: url("https://blog.ourcrowd.com/wp-content/uploads/2016/01/future-of-connected-world.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -19,13 +19,13 @@ body {
 h1 {
   font-size: 4em;
   text-shadow:
-    2px 2px 6px #FFA500,
+    2px 2px 6px #94e6c5,
     /* Top left */
-    -3px -3px 6px #FFA500,
+    -3px -3px 6px black,
     /* Bottom right */
-    3px -3px 6px #FFA500,
+    3px -3px 6px #94e6c5,
     /* Bottom left */
-    -3px 3px 6px #FFA500;
+    -3px 3px 6px black;
   color: white;
 }
 
@@ -87,7 +87,7 @@ input[type="number"] {
 }
 
 .suggestions>li:hover {
-  background-color: #fac561;
+  background-color: #94e6c5;
 }
 
 .input_events__number {
@@ -98,13 +98,7 @@ input[type="number"] {
 .label_events__number {
   color: black;
   font-size: large;
-  text-shadow: 3px 3px 3px white,
-    /* Top left */
-    -3px -3px 3px white,
-    /* Bottom right */
-    3px -3px 3px white,
-    /* Bottom left */
-    -3px 3px 3px white;
+  text-shadow: 2px 2px 2px #94e6c5;
   font-weight: bold;
   padding: 8px;
 }
@@ -128,7 +122,16 @@ input[type="number"] {
   border-radius: 4px;
   outline: none;
   cursor: pointer;
-  background-color: #FFA500;
+  background-color: #b6ecd6;
   font-weight: bold;
   margin: 3px;
+  border: 1.5px solid #3bc58d;
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.5s ease;
+}
+
+.details-btn:hover {
+  background-color: #3bc58d;
+  border-color: #b6ecd6;
+  transform: scale(1.1);
+  color: white;
 }
