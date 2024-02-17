@@ -34,7 +34,6 @@ const App = () => {
 
   return (
     <>
-      <div className="background">   </div>
       <div className="App">
         <h1>Meet App</h1>
         <div className="alerts-container">
@@ -46,6 +45,7 @@ const App = () => {
         <NumberOfEvents setCurrentNOE={setCurrentNOE} setErrorAlert={setErrorAlert} currentNOE={currentNOE} />
         <EventList events={events} />
       </div>
+      <div className="background">   </div>
     </>
   );
 }
