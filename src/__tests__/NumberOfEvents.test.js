@@ -7,7 +7,7 @@ describe('<NumberOfEvents/> component', () => {
 
     let NumberOfEventsComponent;
     beforeEach(() =>
-        NumberOfEventsComponent = render(<NumberOfEvents />)
+        NumberOfEventsComponent = render(<NumberOfEvents setErrorAlert={() => { }} />)
     )
 
     test('render element with role textbox', () => {
@@ -19,7 +19,7 @@ describe('<NumberOfEvents/> component', () => {
     })
     test('value of input changes as user types in the input field', async () => {
         const user = userEvent.setup();
-        NumberOfEventsComponent.rerender(<NumberOfEvents setCurrentNOE={() => { }} />);
+        NumberOfEventsComponent.rerender(<NumberOfEvents setCurrentNOE={() => { }} setErrorAlert={() => { }} />);
         const inputField = NumberOfEventsComponent.queryByRole('spinbutton')
         await user.type(inputField, '{backspace}{backspace}4');
         expect(inputField).toHaveValue(4);

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import CitySearch from './components/CitySearch';
 import EventList from './components/EventList';
 import NumberOfEvents from './components/NumberOfEvents'
-import { InfoAlert } from './components/Alert';
+import { InfoAlert, ErrorAlert } from './components/Alert';
 import { getEvents, extractLocations } from './api';
 
 import './App.css';
@@ -11,9 +11,10 @@ const App = () => {
   const [events, setEvents] = useState([]);
   const [currentNOE, setCurrentNOE] = useState(32);
   const [allLocations, setAllLocations] = useState([]);
-  // will be rendered when componentr mounts, so default has to be -> see all cities
+  // will be rendered when component mounts, so default has to be -> see all cities
   const [currentCity, setCurrentCity] = useState("See all cities");
   const [infoAlert, setInfoAlert] = useState("");
+  const [errorAlert, setErrorAlert] = useState("");
 
   useEffect(() => {
     (async () => {
@@ -32,16 +33,20 @@ const App = () => {
 
 
   return (
-    <div className="App">
-      <h1>Meet App</h1>
-      <div className="alerts-container">
-        {/* checks if lengh is not zero -> then render & pass prop to InfoAlert */}
-        {infoAlert.length ? <InfoAlert text={infoAlert} /> : null}
+    <>
+      <div className="background">   </div>
+      <div className="App">
+        <h1>Meet App</h1>
+        <div className="alerts-container">
+          {/* checks if lengh is not zero -> then render & pass prop to InfoAlert */}
+          {infoAlert.length ? <InfoAlert text={infoAlert} /> : null}
+          {errorAlert.length ? <ErrorAlert text={errorAlert} /> : null}
+        </div>
+        <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity} setInfoAlert={setInfoAlert} />
+        <NumberOfEvents setCurrentNOE={setCurrentNOE} setErrorAlert={setErrorAlert} currentNOE={currentNOE} />
+        <EventList events={events} />
       </div>
-      <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity} setInfoAlert={setInfoAlert} />
-      <NumberOfEvents setCurrentNOE={setCurrentNOE} />
-      <EventList events={events} />
-    </div>
+    </>
   );
 }
 
