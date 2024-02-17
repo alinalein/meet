@@ -7,7 +7,7 @@ import { getEvents, extractLocations } from '../api';
 describe('<CitySearch /> component', () => {
     let CitySearchComponent
     beforeEach(() => {
-        CitySearchComponent = render(<CitySearch allLocations={[]} />);
+        CitySearchComponent = render(<CitySearch allLocations={[]} setInfoAlert={() => { }} />);
     })
     test('renders text input', () => {
         const cityTextBox = CitySearchComponent.queryByRole('textbox');
@@ -33,7 +33,7 @@ describe('<CitySearch /> component', () => {
         const user = userEvent.setup();
         const allEvents = await getEvents();
         const allLocations = extractLocations(allEvents);
-        CitySearchComponent.rerender(<CitySearch allLocations={allLocations} />);
+        CitySearchComponent.rerender(<CitySearch allLocations={allLocations} setInfoAlert={() => { }} />);
 
         // user types "Berlin" in city textbox
         const cityTextBox = CitySearchComponent.queryByRole('textbox');
@@ -55,7 +55,7 @@ describe('<CitySearch /> component', () => {
         const user = userEvent.setup();
         const allEvents = await getEvents();
         const allLocations = extractLocations(allEvents);
-        CitySearchComponent.rerender(<CitySearch allLocations={allLocations} setCurrentCity={() => { }} />);
+        CitySearchComponent.rerender(<CitySearch allLocations={allLocations} setCurrentCity={() => { }} setInfoAlert={() => { }} />);
 
         const cityTextBox = CitySearchComponent.queryByRole('textbox');
         await user.type(cityTextBox, "Berlin");
@@ -72,7 +72,7 @@ describe('<CitySearch /> component', () => {
         const user = userEvent.setup();
         const allEvents = await getEvents();
         const allLocations = extractLocations(allEvents);
-        CitySearchComponent.rerender(<CitySearch allLocations={allLocations} setCurrentCity={() => { }} />);
+        CitySearchComponent.rerender(<CitySearch allLocations={allLocations} setCurrentCity={() => { }} setInfoAlert={() => { }} />);
 
         const cityTextBox = CitySearchComponent.queryByRole('textbox');
         await user.type(cityTextBox, "XXXXX");
