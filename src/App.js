@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import CitySearch from './components/CitySearch';
 import EventList from './components/EventList';
 import NumberOfEvents from './components/NumberOfEvents'
-import { InfoAlert, ErrorAlert } from './components/Alert';
+import { InfoAlert, ErrorAlert, WarningAlert } from './components/Alert';
 import { getEvents, extractLocations } from './api';
 
 import './App.css';
@@ -15,9 +15,15 @@ const App = () => {
   const [currentCity, setCurrentCity] = useState("See all cities");
   const [infoAlert, setInfoAlert] = useState("");
   const [errorAlert, setErrorAlert] = useState("");
+  const [warningAlert, setWarningAlert] = useState("");
 
   useEffect(() => {
     (async () => {
+      // displays message when user offline
+      if (!navigator.onLine) {
+        setWarningAlert("You are currently offline, events are loaded from the cache!")
+      }
+
       try {
         const allEvents = await getEvents();
         const filteredEvents = currentCity === "See all cities" ?
@@ -40,6 +46,7 @@ const App = () => {
           {/* checks if lengh is not zero -> then render & pass prop to InfoAlert */}
           {infoAlert.length ? <InfoAlert text={infoAlert} /> : null}
           {errorAlert.length ? <ErrorAlert text={errorAlert} /> : null}
+          {warningAlert.length ? <WarningAlert text={warningAlert} /> : null}
         </div>
         <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity} setInfoAlert={setInfoAlert} />
         <NumberOfEvents setCurrentNOE={setCurrentNOE} setErrorAlert={setErrorAlert} currentNOE={currentNOE} />
