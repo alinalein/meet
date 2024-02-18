@@ -45,7 +45,7 @@ const App = () => {
         <NumberOfEvents setCurrentNOE={setCurrentNOE} setErrorAlert={setErrorAlert} currentNOE={currentNOE} />
         <EventList events={events} />
       </div>
-      <div className="background">   </div>
+      <div className="background"></div>
     </>
   );
 }
