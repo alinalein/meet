@@ -80,3 +80,6 @@ When user open the app, they will be redirected the enter their credentials via 
 This OAuth2 token will be presented by the serverless function to the Google Calendar API, granting the user access to the listed events.
 
 In this case, the serverless function from AWS Lambda will be used. In general, a serverless function automatically scale based on the number of requests received, and charges are incurred only for the actual execution of each function, making it a cost-efficient option. The use of OAuth is a quite secure method for authenticating.
+## IU of the Meet APP
+<img width="933" alt="image" src="https://github.com/alinalein/meet/assets/111589183/2f34ccc1-0611-4c0a-b1b0-7c9863f2a87f">
+
