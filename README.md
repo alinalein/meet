@@ -83,15 +83,16 @@ In this case, the serverless function from AWS Lambda will be used. In general, 
 
 ## Technology Stack
 - **React** : JavaScript library for building user interfaces, developed and maintained by Facebook
-- **Google Calendar API** :
-- **AWS Lambda** :
-- **Jest (Unit and Integration Testing)** :
-- **Jest Cucumber (User Acceptance Testing)** :
-- **Puppeteer (End-to-End Testing)** :
-- **Atatus (Performance Monitoring)** :
+- **Google Calendar API** : Provides developers with endpoints to integrate Google Calendar functionality into their applications
+- **AWS Lambda** :  Serverless computing service that enables developers to run code in response to events without managing servers
+- **Jest (Unit and Integration Testing)** : JavaScript testing framework, offering snapshot testing, mocking, and code coverage analysis capabilities
+- **Jest Cucumber (User Acceptance Testing)** : Integrates Cucumber with Jest for behavior-driven development and acceptance testing with tests written in Gherkin syntax
+- **Puppeteer (End-to-End Testing)** : Node.js library for automating browser actions and controlling headless Chrome or Chromium browsers,
+- **Atatus (Performance Monitoring)** : Performance monitoring platform, providing real-time insights into application performance, error tracking and resource utilization
 
 ## Link to deployed APP
 https://alinalein.github.io/meet/
+
 ## IU of the Meet APP
 <img width="955" alt="image" src="https://github.com/alinalein/meet/assets/111589183/4580ba1f-e2ff-4806-9fc4-444d126f7a5a">
 
