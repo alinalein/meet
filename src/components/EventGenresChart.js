@@ -13,25 +13,40 @@ const EventGenresChart = ({ events }) => {
     //formel from sandbox -> PieChartWithCustomizedLabel
     const renderCustomizedLabel = ({ cx, cy, midAngle, outerRadius, percent, index }) => {
         const RADIAN = Math.PI / 180;
-        const radius = outerRadius;
-        const x = cx + (radius + 5) * Math.cos(-midAngle * RADIAN) * 1.07;
-        const y = cy + (radius + 5) * Math.sin(-midAngle * RADIAN) * 1.07;
-        const rectWidth = 120;
-        const rectHeight = 20;
-        return percent ? (
-            <>
-                <rect x={x - rectWidth / 2} y={y - rectHeight / 2} width={rectWidth} height={rectHeight} fill="url(#chartBg)" rx={5} ry={5} />
-                <text
-                    x={x}
-                    y={y}
-                    fill="white"
-                    textAnchor="middle"
-                    dominantBaseline="central"
-                >
-                    {`${genres[index]} ${(percent * 100).toFixed(0)}%`}
-                </text>
+        const radius = outerRadius + 10;
+        const x = cx + radius * Math.cos(-midAngle * RADIAN) * 1.07;
+        const y = cy + radius * Math.sin(-midAngle * RADIAN) * 1.07;
+        const isSmallScreen = window.innerWidth < 600;
+        const isMiddleScreen = window.innerWidth < 1000;
+        const text = `${genres[index]} ${(percent * 100).toFixed(0)}%`;
 
-            </>
+        // Determine horizontal alignment based on position relative to the center (cx)
+        const xOffset = isMiddleScreen ? 0 : (x > cx ? 40 : -50); // Adjust based on condition
+        const yOffset = 0;
+
+        // Adjust these values based on your needs
+        const fontSize = isSmallScreen ? 10 : 16; // Font size based on screen size
+        const padding = isSmallScreen ? 2 : 4; // Padding based on screen size
+        const textWidth = text.length * (fontSize * 0.6) + padding * 2; // Text width estimation
+        const textHeight = fontSize * 1.4 + padding * 2; // Text height estimation
+
+        return percent ? (
+            <foreignObject x={x - textWidth / 2 + xOffset} y={y - textHeight / 2 + yOffset} width={textWidth} height={textHeight}>                <div xmlns="http://www.w3.org/1999/xhtml" style={{
+                background: 'rgba(0, 0, 0, 0.7)',
+                color: 'white',
+                textAlign: 'center', // Adjust text alignment based on position
+                fontSize: `${fontSize}px`,
+                padding: `${padding}px`,
+                display: 'flex',
+                justifyContent: 'center', // Center content horizontally in the div
+                alignItems: 'center', // Center content vertically in the div
+                height: '100%',
+                width: '100%',
+                borderRadius: '4px',
+            }}>
+                {text}
+            </div>
+            </foreignObject>
         ) : null;
     };
     const getData = () => {
@@ -42,18 +57,19 @@ const EventGenresChart = ({ events }) => {
         })
         return data
     }
+
     return (
         <ResponsiveContainer width="99%" height={400}>
 
-            <PieChart>
+            <PieChart >
 
-                <Pie
+                <Pie stroke="#999"
                     data={data}
                     dataKey="value"
                     fill="rgba(0, 0, 0, 0.85)"
                     labelLine={false}
                     label={renderCustomizedLabel}
-                    outerRadius={130}
+                    outerRadius="70%"
                 />
 
             </PieChart>

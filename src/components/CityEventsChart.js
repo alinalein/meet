@@ -46,7 +46,7 @@ const CityEventsChart = ({ allLocations, events }) => {
                 </defs>
                 {/* Draw background */}
                 <rect x="0" y="0" width="100%" height="100%" fill="rgba(0, 0, 0, 0.85)" rx="10" ry="10" />
-                <CartesianGrid />
+                <CartesianGrid stroke="#999" />
                 <XAxis
                     type="category" dataKey="city" name="City"
                     angle={60} interval={0} tick={{ fill: 'white', dx: 20, dy: 40, fontSize: 14 }}
@@ -54,7 +54,7 @@ const CityEventsChart = ({ allLocations, events }) => {
                 <YAxis type="number" dataKey="count" name="Number of events" allowDecimals={false} tick={{ fill: 'white' }} />
                 {/* to provide addtional info when user hovers over dots */}
                 <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-                <Scatter name="A school" data={data} fill="#03eb8e" />
+                <Scatter name="A school" data={data} fill="#77dd77" />
 
             </ScatterChart>
         </ResponsiveContainer>
