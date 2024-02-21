@@ -98,6 +98,12 @@ input[type="number"] {
   z-index: 1000;
 }
 
+.charts-container {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+}
+
 .suggestions {
   width: 250px;
   position: absolute;
@@ -123,6 +129,10 @@ input[type="number"] {
 
 .suggestions>li:hover {
   background-color: #94e6c5;
+}
+
+#number-events {
+  margin-bottom: 20px;
 }
 
 .input_events__number {
@@ -167,7 +177,12 @@ input[type="number"] {
 
 .details-btn:hover {
   background-color: #3bc58d;
-  border-color: #b6ecd6;
+  border-color: rgba(0, 0, 0, 0.85);
   transform: scale(1.1);
-  color: white;
+}
+
+@media all and (max-width: 750px) {
+  .charts-container {
+    grid-template-columns: 1fr;
+  }
 }

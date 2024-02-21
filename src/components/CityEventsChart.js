@@ -16,7 +16,6 @@ const CityEventsChart = ({ allLocations, events }) => {
         setData(getData());
     }, [`${events}`]);
 
-
     const getData = () => {
         // apply logic on each location of the array
         const data = allLocations.map((location) => {
@@ -38,15 +37,25 @@ const CityEventsChart = ({ allLocations, events }) => {
                     bottom: 60,
                     left: -30
                 }}
-            >
+            >{/* Define background gradient */}
+                <defs>
+                    <linearGradient id="chartBg" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="5%" stopColor="#333" stopOpacity={0.85} />
+                        <stop offset="95%" stopColor="#333" stopOpacity={0.85} />
+                    </linearGradient>
+                </defs>
+                {/* Draw background */}
+                <rect x="0" y="0" width="100%" height="100%" fill="rgba(0, 0, 0, 0.85)" rx="10" ry="10" />
                 <CartesianGrid />
                 <XAxis
                     type="category" dataKey="city" name="City"
-                    angle={60} interval={0} tick={{ dx: 20, dy: 40, fontSize: 14 }}
+                    angle={60} interval={0} tick={{ fill: 'white', dx: 20, dy: 40, fontSize: 14 }}
                 />
-                <YAxis type="number" dataKey="count" name="Number of events" allowDecimals={false} />
+                <YAxis type="number" dataKey="count" name="Number of events" allowDecimals={false} tick={{ fill: 'white' }} />
+                {/* to provide addtional info when user hovers over dots */}
                 <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-                <Scatter name="A school" data={data} fill="#8884d8" />
+                <Scatter name="A school" data={data} fill="#03eb8e" />
+
             </ScatterChart>
         </ResponsiveContainer>
     );
