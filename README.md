@@ -1,5 +1,5 @@
 ## Meet APP
-The app is designed for event management, using React and a test-driven development approach. A serverless and progressive web app, it fetches upcoming events through the Google Calendar API. The user will be able to view the events by city and choose how many events they want to see at once, along with accessing event details.
+The app is designed for event management, using React and a test-driven development approach. A serverless and progressive web app, it fetches upcoming events through the Google Calendar API. Users will be able to view the events by city and choose how many events they want to see at once, along with accessing event details.
 
 ## Gherkin and User Stories
 
@@ -75,20 +75,20 @@ __Then__ they should see a chart displaying the number of upcoming events catego
 
 ## Use of serverless functions in this APP 
 
-When user open the app, they will be redirected the enter their credentials via OAuth at Google, the event of the serverless function will be triggered, it then will fetch the token from the Authorization Server. 
+When users open the app, they will be redirected to enter their credentials via OAuth at Google; the event of the serverless function will be triggered, which will then fetch the token from the Authorization Server.
 
 This OAuth2 token will be presented by the serverless function to the Google Calendar API, granting the user access to the listed events.
 
-In this case, the serverless function from AWS Lambda will be used. In general, a serverless function automatically scale based on the number of requests received, and charges are incurred only for the actual execution of each function, making it a cost-efficient option. The use of OAuth is a quite secure method for authenticating.
+In this case, the serverless function from AWS Lambda will be used. In general, a serverless function automatically scales based on the number of requests received, and charges are incurred only for the actual execution of each function, making it a cost-efficient option. The use of OAuth is a quite secure method for authenticating.
 
 ## Technology Stack
-- **React** : JavaScript library for building user interfaces, developed and maintained by Facebook
-- **Google Calendar API** : Provides developers with endpoints to integrate Google Calendar functionality into their applications
-- **AWS Lambda** :  Serverless computing service that enables developers to run code in response to events without managing servers
-- **Jest (Unit and Integration Testing)** : JavaScript testing framework, offering snapshot testing, mocking, and code coverage analysis capabilities
-- **Jest Cucumber (User Acceptance Testing)** : Integrates Cucumber with Jest for behavior-driven development and acceptance testing with tests written in Gherkin syntax
-- **Puppeteer (End-to-End Testing)** : Node.js library for automating browser actions and controlling headless Chrome or Chromium browsers,
-- **Atatus (Performance Monitoring)** : Performance monitoring platform, providing real-time insights into application performance, error tracking and resource utilization
+- **React** : JavaScript library for building user interfaces, developed and maintained by Facebook.
+- **Google Calendar API** : Provides developers with endpoints to integrate Google Calendar functionality into their applications.
+- **AWS Lambda** :  Serverless computing service that enables developers to run code in response to events without managing servers.
+- **Jest (Unit and Integration Testing)** : JavaScript testing framework, offering snapshot testing, mocking, and code coverage analysis capabilities.
+- **Jest Cucumber (User Acceptance Testing)** : Integrates Cucumber with Jest for behavior-driven development and acceptance testing with tests written in Gherkin syntax.
+- **Puppeteer (End-to-End Testing)** : Node.js library for automating browser actions and controlling headless Chrome or Chromium browsers.
+- **Atatus (Performance Monitoring)** : Performancemonitoring platform, providing real-time insights into application performance, error tracking, and resource utilization.
 
 ## Link to deployed APP
 https://alinalein.github.io/meet/
