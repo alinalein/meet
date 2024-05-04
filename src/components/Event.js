@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { formatDateTime } from '../utils/helpers'
+
 const Event = ({ event }) => {
 
     const [showDetails, setShowDetails] = useState(false)
+
     const toggleShowDetails = () => {
         setShowDetails(!showDetails);
     };

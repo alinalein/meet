@@ -24,7 +24,7 @@ const getToken = async (code) => {
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`)
         }
-        // get token as response from fetch if send the code 
+        // get token as response from fetch if send the code in the url
         const { access_token } = await response.json();
         // save access_token in localStorage
         access_token && localStorage.setItem("access_token", access_token);
@@ -44,17 +44,17 @@ const checkToken = async (accessToken) => {
     return result;
 };
 
-// checks if user already has tocken, if not-> redirects to OAuth
+// checks if user already has token, if not -> redirects to OAuth
 export const getAccessToken = async () => {
     //check if token in local storage
     const accessToken = localStorage.getItem('access_token');
-    // chech if accessTokn is not/null/undefined 
-    //then pass the token we got from localstorage to function and the endpoind & await result-> is the token correct / valid?
+    // check if accessToken is not null/undefined 
+    // then passes the token we got from localstorage to function and the endpoind & awaits result-> is the token correct / valid?
     const tokenCheck = accessToken && (await checkToken(accessToken));
 
     if (!accessToken || tokenCheck.error) {
         await localStorage.removeItem("access_token");
-        //checks for authorization code
+        // checks for authorization code
         const searchParams = new URLSearchParams(window.location.search);
         const code = await searchParams.get("code");
         // no authorization code -> user redirected to Google Authorization screen
@@ -71,7 +71,7 @@ export const getAccessToken = async () => {
     return accessToken;
 };
 
-//remove query parameters from the current URL in a web browser without causing a full page reload
+// removes query parameters from the current URL in a web browser without causing a full page reload
 const removeQuery = () => {
     let newurl;
     if (window.history.pushState && window.location.pathname) {
@@ -88,14 +88,14 @@ const removeQuery = () => {
     }
 };
 
-// fetchs the list of all events either from mockdata or API
+// fetches the list of all events either from mockdata or API
 export const getEvents = async () => {
-    // only use mockDate when when the web page is being accessed from a local development server (localhost)
+    // only use mockDate when the web page is being accessed from a local development server (localhost)
     if (window.location.href.startsWith('http://localhost')) {
         return mockData;
     }
     if (!navigator.onLine) {
-        // if offline , displays the last events loaded before offline
+        // if offline , displays the last events loaded before went offline
         const events = localStorage.getItem("lastEvents");
         return events ? JSON.parse(events) : [];
     }

@@ -1,7 +1,8 @@
 import { Component } from 'react';
 
 class Alert extends Component {
-    // will render text that it wll receive from props
+
+    // will render text that it will receive from props
     constructor(props) {
         super(props);
         // null as the subclasses will overwrite them 
@@ -9,7 +10,8 @@ class Alert extends Component {
         this.bgColor = null;
     }
 
-    getStyle = () => {   // defines basic styles
+    // define basic styles
+    getStyle = () => {
         return {
             color: this.color,
             backgroundColor: this.bgColor,
@@ -33,6 +35,7 @@ class Alert extends Component {
         );
     }
 }
+
 class InfoAlert extends Alert {
     constructor(props) {
         super(props);
@@ -44,15 +47,16 @@ class InfoAlert extends Alert {
 class ErrorAlert extends Alert {
     constructor(props) {
         super(props);
-        this.color = '#e60000'; // text
-        this.bgColor = '#ffcccc'; // background 
+        this.color = '#e60000';
+        this.bgColor = '#ffcccc';
     }
 }
 class WarningAlert extends Alert {
     constructor(props) {
         super(props);
-        this.color = ' #0000ff'; // text
-        this.bgColor = '#b3b3ff'; // background 
+        this.color = ' #0000ff';
+        this.bgColor = '#b3b3ff';
     }
 }
+
 export { InfoAlert, ErrorAlert, WarningAlert };

@@ -16,10 +16,11 @@ const CityEventsChart = ({ allLocations, events }) => {
         setData(getData());
     }, [`${events}`]);
 
+    // gets the data city and the count of the events in each city from the events array
     const getData = () => {
         // apply logic on each location of the array
         const data = allLocations.map((location) => {
-            // gets only events that have same location as location and get the length of result
+            // gets only events that have same location and gets the number of those events
             const count = events.filter((event) => event.location === location).length
             // splits the location where , OR - is and takes the first part, so only city
             const city = location.split(/, | - /)[0]
@@ -28,6 +29,8 @@ const CityEventsChart = ({ allLocations, events }) => {
         })
         return data;
     };
+
+    // returns a scatter chart
     return (
         <ResponsiveContainer width="99%" height={350}>
             <ScatterChart
@@ -37,14 +40,14 @@ const CityEventsChart = ({ allLocations, events }) => {
                     bottom: 60,
                     left: -30
                 }}
-            >{/* Define background gradient */}
+            >{/* define background gradient */}
                 <defs>
                     <linearGradient id="chartBg" x1="0" y1="0" x2="0" y2="1">
                         <stop offset="5%" stopColor="#333" stopOpacity={0.85} />
                         <stop offset="95%" stopColor="#333" stopOpacity={0.85} />
                     </linearGradient>
                 </defs>
-                {/* Draw background */}
+                {/* draw background */}
                 <rect x="0" y="0" width="100%" height="100%" fill="rgba(0, 0, 0, 0.85)" rx="10" ry="10" />
                 <CartesianGrid stroke="#999" />
                 <XAxis
@@ -52,7 +55,7 @@ const CityEventsChart = ({ allLocations, events }) => {
                     angle={60} interval={0} tick={{ fill: 'white', dx: 20, dy: 40, fontSize: 14 }}
                 />
                 <YAxis type="number" dataKey="count" name="Number of events" allowDecimals={false} tick={{ fill: 'white' }} />
-                {/* to provide addtional info when user hovers over dots */}
+                {/* provide addtional info when user hovers over dots */}
                 <Tooltip cursor={{ strokeDasharray: '3 3' }} />
                 <Scatter name="A school" data={data} fill="#77dd77" />
 

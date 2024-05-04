@@ -3,6 +3,7 @@
 const { google } = require("googleapis");
 const calendar = google.calendar("v3");
 const SCOPES = ["https://www.googleapis.com/auth/calendar.events.public.readonly"];
+// declared in config file 
 const { CLIENT_SECRET, CLIENT_ID, CALENDAR_ID } = process.env;
 const redirect_uris = [
   "https://alinalein.github.io/meet/"
@@ -14,11 +15,10 @@ const oAuth2Client = new google.auth.OAuth2(
   redirect_uris[0]
 );
 
+// AWS function to get the access token
 module.exports.getAuthURL = async () => {
   /**
-   *
    * Scopes array is passed to the `scope` option. 
-   *
    */
   const authUrl = oAuth2Client.generateAuthUrl({
     access_type: "offline",
@@ -37,6 +37,7 @@ module.exports.getAuthURL = async () => {
   };
 };
 
+// AWS function to get the access token
 module.exports.getAccessToken = async (event) => {
   // Decode authorization code extracted from the URL query
   const code = decodeURIComponent(`${event.pathParameters.code}`);
@@ -55,7 +56,7 @@ module.exports.getAccessToken = async (event) => {
     });
   })
     .then((results) => {
-      // Respond with OAuth token 
+      // response with OAuth token 
       return {
         statusCode: 200,
         headers: {
@@ -67,7 +68,7 @@ module.exports.getAccessToken = async (event) => {
       };
     })
     .catch((error) => {
-      // Handle error
+      // handle error
       return {
         statusCode: 500,
         body: JSON.stringify(error),
@@ -75,8 +76,9 @@ module.exports.getAccessToken = async (event) => {
     });
 };
 
+// AWS function to get the events from the calender 
 module.exports.getCalendarEvents = async (event) => {
-  // get access token, Decode authorization code & extraxt from params in HTTP/ URL query 
+  // get access token, decode authorization code & extraxt from params in HTTP/ URL query 
   const access_token = decodeURIComponent(`${event.pathParameters.access_token}`);
   oAuth2Client.setCredentials({ access_token });
 
@@ -98,7 +100,7 @@ module.exports.getCalendarEvents = async (event) => {
     );
   })
     .then((results) => {
-      // Respond with OAuth token
+      // respond with OAuth token
       return {
         statusCode: 200,
         // removes CORS check 
@@ -110,7 +112,7 @@ module.exports.getCalendarEvents = async (event) => {
       };
     })
     .catch((error) => {
-      // Handle error ssaaa
+      // handle error 
       return {
         statusCode: 500,
         body: JSON.stringify(error),
