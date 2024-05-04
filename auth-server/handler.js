@@ -39,10 +39,11 @@ module.exports.getAuthURL = async () => {
 
 // AWS function to get the access token
 module.exports.getAccessToken = async (event) => {
-  // Decode authorization code extracted from the URL query
+
   const code = decodeURIComponent(`${event.pathParameters.code}`);
 
   return new Promise((resolve, reject) => {
+
     /**
      *  Exchange authorization code for access token with a “callback” after the exchange,
      *  The callback in this case is an arrow function with the results as parameters: “error” and “response”
@@ -68,7 +69,6 @@ module.exports.getAccessToken = async (event) => {
       };
     })
     .catch((error) => {
-      // handle error
       return {
         statusCode: 500,
         body: JSON.stringify(error),
@@ -100,7 +100,7 @@ module.exports.getCalendarEvents = async (event) => {
     );
   })
     .then((results) => {
-      // respond with OAuth token
+      // response with OAuth token
       return {
         statusCode: 200,
         // removes CORS check 
@@ -112,7 +112,6 @@ module.exports.getCalendarEvents = async (event) => {
       };
     })
     .catch((error) => {
-      // handle error 
       return {
         statusCode: 500,
         body: JSON.stringify(error),

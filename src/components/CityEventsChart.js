@@ -9,6 +9,7 @@ import {
 } from 'recharts';
 
 const CityEventsChart = ({ allLocations, events }) => {
+
     const [data, setData] = useState([]);
 
     // called and set when the number of events will change (number change / other city selected) 
@@ -18,19 +19,14 @@ const CityEventsChart = ({ allLocations, events }) => {
 
     // gets the data city and the count of the events in each city from the events array
     const getData = () => {
-        // apply logic on each location of the array
         const data = allLocations.map((location) => {
-            // gets only events that have same location and gets the number of those events
             const count = events.filter((event) => event.location === location).length
-            // splits the location where , OR - is and takes the first part, so only city
             const city = location.split(/, | - /)[0]
-            // returns object with those two parameters
             return { count: count, city: city };
         })
         return data;
     };
 
-    // returns a scatter chart
     return (
         <ResponsiveContainer width="99%" height={350}>
             <ScatterChart

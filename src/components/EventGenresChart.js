@@ -13,7 +13,7 @@ const EventGenresChart = ({ events }) => {
     const getData = () => {
         const data = genres.map(genre => {
             const filteredEvents = events.filter((event) => event.summary.includes(genre)).length
-            // formal of data the PieChart expects 
+            // format of data the PieChart expects 
             return { name: genre, value: filteredEvents };
         })
         return data
@@ -31,10 +31,9 @@ const EventGenresChart = ({ events }) => {
         const text = `${genres[index]} ${(percent * 100).toFixed(0)}%`;
 
         // determine horizontal alignment based on position relative to the center (cx)
-        const xOffset = isMiddleScreen ? 0 : (x > cx ? 40 : -50); // adjust based on condition
+        const xOffset = isMiddleScreen ? 0 : (x > cx ? 40 : -50);
         const yOffset = 0;
 
-        // adjust these values based on your needs
         const fontSize = isSmallScreen ? 10 : 14; // font size based on screen size
         const padding = isSmallScreen ? 2 : 4; // padding based on screen size
         const textWidth = text.length * (fontSize * 0.6) + padding * 2; // text width estimation
@@ -44,13 +43,12 @@ const EventGenresChart = ({ events }) => {
             <foreignObject x={x - textWidth / 2 + xOffset} y={y - textHeight / 2 + yOffset} width={textWidth} height={textHeight}>
                 <div style={{
                     background: 'rgba(0, 0, 0, 0.7)',
-                    textAlign: 'center', // adjust text alignment based on position
-                    color: 'white',
+                    textAlign: 'center',
                     fontSize: `${fontSize}px`,
                     padding: `${padding}px`,
                     display: 'flex',
-                    justifyContent: 'center', // center content horizontally in the div
-                    alignItems: 'center', // center content vertically in the div
+                    justifyContent: 'center',
+                    alignItems: 'center',
                     height: '100%',
                     width: '100%',
                     borderRadius: '4px',

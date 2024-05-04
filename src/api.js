@@ -16,7 +16,6 @@ export const extractLocations = (events) => {
 // gets a token if code is present 
 const getToken = async (code) => {
     try {
-        //encodes the code received
         const encodeCode = encodeURIComponent(code);
         const response = await fetch(
             'https://pq0y2ngaq5.execute-api.eu-central-1.amazonaws.com/dev/api/token' + '/' + encodeCode
@@ -26,7 +25,6 @@ const getToken = async (code) => {
         }
         // get token as response from fetch if send the code in the url
         const { access_token } = await response.json();
-        // save access_token in localStorage
         access_token && localStorage.setItem("access_token", access_token);
 
         return access_token;
@@ -46,7 +44,6 @@ const checkToken = async (accessToken) => {
 
 // checks if user already has token, if not -> redirects to OAuth
 export const getAccessToken = async () => {
-    //check if token in local storage
     const accessToken = localStorage.getItem('access_token');
     // check if accessToken is not null/undefined 
     // then passes the token we got from localstorage to function and the endpoind & awaits result-> is the token correct / valid?
