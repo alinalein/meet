@@ -43,6 +43,7 @@ const EventGenresChart = ({ events }) => {
             <foreignObject x={x - textWidth / 2 + xOffset} y={y - textHeight / 2 + yOffset} width={textWidth} height={textHeight}>
                 <div style={{
                     background: 'rgba(0, 0, 0, 0.7)',
+                    color: 'white',
                     textAlign: 'center',
                     fontSize: `${fontSize}px`,
                     padding: `${padding}px`,
