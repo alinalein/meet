@@ -1,5 +1,5 @@
 ## Meet APP
-The app is designed for event management, using React and a test-driven development approach. A serverless and progressive web app, it fetches upcoming events through the Google Calendar API. Users will be able to view the events by city and choose how many events they want to see at once, along with accessing event details.
+The app is designed for event management, using React and a test-driven development approach. It is a serverless and progressive web app, that fetches upcoming events through the Google Calendar API. Users will be able to view the events by city and choose how many events they want to see at once, along with accessing event details.
 
 ## Gherkin and User Stories
 
