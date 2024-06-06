@@ -88,6 +88,7 @@ In this case, the serverless function from AWS Lambda will be used. In general, 
 https://alinalein.github.io/meet/
 
 ## IU of the Meet APP
+<img width="200" alt="image" src="https://github.com/alinalein/meet/assets/111589183/f8711c18-95b5-4471-a6b8-016fe706a004">
 <img width="955" alt="image" src="https://github.com/alinalein/meet/assets/111589183/4580ba1f-e2ff-4806-9fc4-444d126f7a5a">
 
 
