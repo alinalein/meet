@@ -76,13 +76,13 @@ This OAuth2 token will be presented by the serverless function to the Google Cal
 In this case, the serverless function from AWS Lambda will be used. In general, a serverless function automatically scales based on the number of requests received, and charges are incurred only for the actual execution of each function, making it a cost-efficient option. The use of OAuth is a quite secure method for authenticating.
 
 ## Technology Stack
-- **React** : JavaScript library for building user interfaces, developed and maintained by Facebook.
-- **Google Calendar API** : Provides developers with endpoints to integrate Google Calendar functionality into their applications.
-- **AWS Lambda** :  Serverless computing service that enables developers to run code in response to events without managing servers.
-- **Jest (Unit and Integration Testing)** : JavaScript testing framework, offering snapshot testing, mocking, and code coverage analysis capabilities.
-- **Jest Cucumber (User Acceptance Testing)** : Integrates Cucumber with Jest for behavior-driven development and acceptance testing with tests written in Gherkin syntax.
-- **Puppeteer (End-to-End Testing)** : Node.js library for automating browser actions and controlling headless Chrome or Chromium browsers.
-- **Atatus (Performance Monitoring)** : Performancemonitoring platform, providing real-time insights into application performance, error tracking, and resource utilization.
+◦❍ **React** : JavaScript library for building user interfaces, developed and maintained by Facebook.  
+◦❍ **Google Calendar API** : Provides developers with endpoints to integrate Google Calendar functionality into their applications.  
+◦❍ **AWS Lambda** :  Serverless computing service that enables developers to run code in response to events without managing servers.  
+◦❍ **Jest (Unit and Integration Testing)** : JavaScript testing framework, offering snapshot testing, mocking, and code coverage analysis capabilities.  
+◦❍ **Jest Cucumber (User Acceptance Testing)** : Integrates Cucumber with Jest for behavior-driven development and acceptance testing with tests written in Gherkin syntax.  
+◦❍ **Puppeteer (End-to-End Testing)** : Node.js library for automating browser actions and controlling headless Chrome or Chromium browsers.  
+◦❍ **Atatus (Performance Monitoring)** : Performancemonitoring platform, providing real-time insights into application performance, error tracking, and resource utilization.  
 
 ## Link to deployed APP
 https://alinalein.github.io/meet/
